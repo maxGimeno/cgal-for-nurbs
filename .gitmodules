@@ -1,0 +1,25 @@
+[submodule "blaze"]
+	path = blaze
+	url = https://bitbucket.org/blaze-lib/blaze.git
+[submodule "opennurbs"]
+	path = opennurbs
+	url = git@gitlab.inria.fr:dream/opennurbs.git
+[submodule "SISL"]
+	path = SISL
+	url = git@github.com:SINTEF-Geometry/SISL.git
+[submodule "dtk-continuous-geometry"]
+	path = dtk-continuous-geometry
+	url = git@gitlab.inria.fr:dtk/dtk-continuous-geometry.git
+	branch = feature/nurbsOracle_for_dtk2
+[submodule "dtk-discrete-geometry"]
+	path = dtk-discrete-geometry
+	url = git@gitlab.inria.fr:dtk/dtk-discrete-geometry.git
+	branch = develop-for-dtk2
+[submodule "dtk-nurbs-probing"]
+	path = dtk-nurbs-probing
+	url = git@gitlab.inria.fr:dream/dtk-nurbs-probing.git
+	branch = feature/subdivisionOracle_for_dtk2
+[submodule "dtk-plugins-continuous-geometry"]
+	path = dtk-plugins-continuous-geometry
+	url = git@gitlab.inria.fr:dtk/dtk-plugins-continuous-geometry.git
+	branch = feature/subdivisionOracle_for_dtk2
