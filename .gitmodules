@@ -23,3 +23,7 @@
 	path = dtk-plugins-continuous-geometry
 	url = git@gitlab.inria.fr:dtk/dtk-plugins-continuous-geometry.git
 	branch = feature/subdivisionOracle_for_dtk2
+[submodule "nurbs-viewer-mesher"]
+	path = nurbs-viewer-mesher
+	url = git@github.com:maxGimeno/cgal.git
+	branch = nurbs-viewer-mesher-dtk2
