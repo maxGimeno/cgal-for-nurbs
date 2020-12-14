@@ -11,11 +11,13 @@ add_subdirectory("${CMAKE_SOURCE_DIR}/blaze")
 set(Blaze_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/blaze)
 #SISL
 add_subdirectory("${CMAKE_SOURCE_DIR}/SISL")
-set(SISL_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/SISL" CACHE INTERNAL "")
+set(SISL_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/SISL/include" CACHE INTERNAL "")
 set(SISL_LIBRARY "${CMAKE_BINARY_DIR}/SISL/libsisl.so" CACHE INTERNAL "")
 #opennurbs
 add_subdirectory("${CMAKE_SOURCE_DIR}/opennurbs")
+include_directories(${CMAKE_SOURCE_DIR}/opennurbs)
 set(openNURBS_FOUND TRUE CACHE INTERNAL "")
+
 #cgal
 message("========== CONFIGURE CGAL... ==========")
 add_subdirectory("${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher")
@@ -27,7 +29,11 @@ message("========== END CONFIGURE CGAL ==========")
 message("========== CONFIGURE DISCRETE GEOMETRY... ==========")
 add_subdirectory("${CMAKE_SOURCE_DIR}/dtk-discrete-geometry")
 set(dtkDiscreteGeometry_FOUND TRUE CACHE INTERNAL "")
+get_property(DTK_DG_INCLUDE_DIRS DIRECTORY ${CMAKE_SOURCE_DIR}/dtk-discrete-geometry PROPERTY INCLUDE_DIRECTORIES)
+include_directories(${DTK_DG_INCLUDE_DIRS})
 message("========== END CONFIGURE DG ==========")
+
+
 #dtk-continuous-geometry
 message("========== CONFIGURE CONTINUOUS GEOMETRY... ==========")
 add_subdirectory("${CMAKE_SOURCE_DIR}/dtk-continuous-geometry")
@@ -35,10 +41,14 @@ get_property(DTK_CG_INCLUDE_DIRS DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/dtk-conti
 include_directories(${DTK_CG_INCLUDE_DIRS})
 message("========== END CONFIGURE CG ==========")
 
+
 #dtk-nurbs-probing
 message("========== CONFIGURE NURBS PROBING... ==========")
 add_subdirectory("${CMAKE_SOURCE_DIR}/dtk-nurbs-probing")
+get_property(DTK_NP_INCLUDE_DIRS DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/dtk-nurbs-probing PROPERTY INCLUDE_DIRECTORIES)
+include_directories(${DTK_NP_INCLUDE_DIRS})
 message("========== END CONFIGURE NURBS PROBING ==========")
+
 
 #dtk-plugins-continuous-geometry
 message("========== CONFIGURE PUGINS CG... ==========")
