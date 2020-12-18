@@ -1,6 +1,3 @@
-[submodule "blaze"]
-	path = blaze
-	url = https://bitbucket.org/blaze-lib/blaze.git
 [submodule "opennurbs"]
 	path = opennurbs
 	url = git@gitlab.inria.fr:dream/opennurbs.git
