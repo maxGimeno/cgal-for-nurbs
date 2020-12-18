@@ -11,6 +11,7 @@ add_subdirectory("${CMAKE_SOURCE_DIR}/blaze")
 set(Blaze_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/blaze CACHE INTERNAL "")
 #SISL
 add_subdirectory("${CMAKE_SOURCE_DIR}/SISL")
+
 set(SISL_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/SISL/include" CACHE INTERNAL "")
 set(SISL_LIBRARY "${CMAKE_BINARY_DIR}/SISL/libsisl.so" CACHE INTERNAL "")
 #opennurbs
@@ -20,10 +21,15 @@ set(openNURBS_FOUND TRUE CACHE INTERNAL "")
 
 #cgal
 message("========== CONFIGURE CGAL... ==========")
-SET(WITH_demos TRUE CACHE INTERNAL "")
+#SET(WITH_demos TRUE CACHE INTERNAL "")
+set(CGAL_HEADER_ONLY TRUE CACHE INTERNAL "")
 add_subdirectory("${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher")
 SET(CGAL_DIR "${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher" CACHE INTERNAL "")
-
+#add CGAL to the export set of dtk-nurbs-probing
+install(TARGETS CGAL
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}
+      COMPONENT CGAL
+         EXPORT dtkNurbsProbingDepends)
 
 
 message("========== END CONFIGURE CGAL ==========")
@@ -47,21 +53,55 @@ include_directories(${DTK_CG_INCLUDE_DIRS})
 set(dtkContinuousGeometry_FOUND TRUE CACHE INTERNAL "")
 message("========== END CONFIGURE CG ==========")
 
-
 #dtk-nurbs-probing
 message("========== CONFIGURE NURBS PROBING... ==========")
+set(DTK_NURBS_PROBING_BUILD_MREP TRUE CACHE INTERNAL "")
 add_subdirectory("${CMAKE_SOURCE_DIR}/dtk-nurbs-probing")
 get_property(DTK_NP_INCLUDE_DIRS DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/dtk-nurbs-probing PROPERTY INCLUDE_DIRECTORIES)
 include_directories(${DTK_NP_INCLUDE_DIRS})
 set(dtkNurbsProbing_FOUND TRUE CACHE INTERNAL "")
 message("========== END CONFIGURE NURBS PROBING ==========")
 
-
 #dtk-plugins-continuous-geometry
 message("========== CONFIGURE PUGINS CG... ==========")
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_SOURCE_DIR}/dtk-plugins-continuous-geometry/cmake")
-set(CGAL_HEADER_ONLY TRUE CACHE INTERNAL "")
 add_subdirectory("${CMAKE_SOURCE_DIR}/dtk-plugins-continuous-geometry")
 message("========== END CONFIGURE PLUGINS CG==========")
 
-
+add_definitions(-DDTK_PLUGINS_DIR=\"${CMAKE_BINARY_DIR}/dtk-plugins-continuous-geometry/lib\")
+add_subdirectory("${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher/Polyhedron/demo/Polyhedron")
+add_dependencies(CGAL_NURBS
+  sisl
+  blazeRationalBezierCurve2DElevator
+  dtkNurbsPolyhedralSurfaceCgal
+  dtkRationalBezierCurveDataSisl
+  npRationalBezierCurveSphereIntersector
+  sislRationalBezierSurfaceCircleIntersector
+  blazeRationalBezierCurveLossLessDegreeReductor
+  dtkNurbsPolyhedralSurfaceDefault
+  dtkRationalBezierSurfaceDataDefault
+  openNURBSBRepReader
+  sislRationalBezierSurfaceLineIntersector
+  defaultRationalBezierCurve2DElevator
+  dtkNurbsSurfaceDataDefault
+  dtkRationalBezierSurfaceDataOn
+  sislNurbsSurfaceRayIntersector
+  sislRationalBezierSurfacePointIntersector
+  defaultRationalBezierCurveLossLessDegreeReductor
+  dtkNurbsSurfaceDataOn
+  dtkRationalBezierSurfaceDataSisl
+  sislRationalBezierCurve2DLineIntersector
+  sislRationalBezierSurfaceRayIntersector
+  dtkBRepReaderCgal
+  dtkNurbsSurfaceDataSisl
+  dtkTrimLoopDataCgal
+  sislRationalBezierCurve2DSegmentIntersector
+  sislRationalBezierSurfaceSegmentIntersector
+  dtkNurbsCurve2DDataOn
+  dtkRationalBezierCurve2DDataOn
+  dtkTrimLoopDataNp
+  sislRationalBezierCurvePlaneIntersector
+  dtkNurbsCurveDataOn
+  dtkRationalBezierCurveDataOn
+  npNurbsCurve2DCircleIntersector
+  sislRationalBezierCurveSphereIntersector)
