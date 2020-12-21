@@ -24,3 +24,7 @@
 	path = nurbs-viewer-mesher
 	url = git@github.com:maxGimeno/cgal.git
 	branch = nurbs-viewer-mesher-dtk2
+[submodule "mine"]
+	path = blaze
+	url = git@github.com:maxGimeno/blaze-old.git
+	branch = blaze-for-nurbs
