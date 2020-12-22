@@ -14,6 +14,19 @@ add_subdirectory("${CMAKE_SOURCE_DIR}/SISL")
 
 set(SISL_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/SISL/include" CACHE INTERNAL "")
 set(SISL_LIBRARY "${CMAKE_BINARY_DIR}/SISL/libsisl.so" CACHE INTERNAL "")
+
+
+#dtk-log
+message("========== CONFIGURE DTK LOG... ==========")
+add_subdirectory("${CMAKE_SOURCE_DIR}/dtk-log")
+
+message(" ==== Done. ====")
+
+#dtk-core
+message("========== CONFIGURE DTK CORE... ==========")
+add_subdirectory("${CMAKE_SOURCE_DIR}/dtk-core")
+
+message("========== Done. ==========")
 #opennurbs
 add_subdirectory("${CMAKE_SOURCE_DIR}/opennurbs")
 include_directories(${CMAKE_SOURCE_DIR}/opennurbs)
@@ -26,10 +39,27 @@ set(CGAL_HEADER_ONLY TRUE CACHE INTERNAL "")
 add_subdirectory("${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher")
 SET(CGAL_DIR "${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher" CACHE INTERNAL "")
 #add CGAL to the export set of dtk-nurbs-probing
-install(TARGETS CGAL
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}
-      COMPONENT CGAL
-         EXPORT dtkNurbsProbingDepends)
+#install(TARGETS CGAL dtkCore dtkLog
+#    DESTINATION ${CMAKE_INSTALL_LIBDIR}
+#    COMPONENT CGAL
+#    EXPORT dtkNurbsProbingDepends)
+#
+#install(TARGETS dtkCore dtkLog
+#  DESTINATION ${CMAKE_INSTALL_LIBDIR}
+#  EXPORT dtkDiscreteGeometryDepends)
+#
+#install(TARGETS dtkCore dtkLog
+#  DESTINATION ${CMAKE_INSTALL_LIBDIR}
+#  EXPORT dtkContinuousGeometryDepends)
+#
+#install(TARGETS dtkCore dtkLog
+#  DESTINATION ${CMAKE_INSTALL_LIBDIR}
+#  EXPORT dtkContinuousGeometryCore)
+#
+#install(TARGETS dtkCore dtkLog
+#  DESTINATION ${CMAKE_INSTALL_LIBDIR}
+#  EXPORT dtkDiscreteGeometryCore)
+
 
 
 message("========== END CONFIGURE CGAL ==========")
@@ -68,8 +98,10 @@ set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_SOURCE_DIR}/dtk-plugins-cont
 add_subdirectory("${CMAKE_SOURCE_DIR}/dtk-plugins-continuous-geometry")
 message("========== END CONFIGURE PLUGINS CG==========")
 
+message("========== CONFIGURE CGAL_NURBS... ==========")
 add_definitions(-DDTK_PLUGINS_DIR=\"${CMAKE_BINARY_DIR}/dtk-plugins-continuous-geometry/lib\")
 add_subdirectory("${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher/Polyhedron/demo/Polyhedron")
+message("========== END CONFIGURE CGAL_NURBS ==========")
 add_dependencies(CGAL_NURBS
   sisl
   blazeRationalBezierCurve2DElevator

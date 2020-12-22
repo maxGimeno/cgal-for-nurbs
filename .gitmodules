@@ -28,3 +28,9 @@
 	path = blaze
 	url = git@github.com:maxGimeno/blaze-old.git
 	branch = blaze-for-nurbs
+[submodule "dtk-core"]
+	path = dtk-core
+	url = git@gitlab.inria.fr:dtk/dtk-core.git
+[submodule "dtk-log"]
+	path = dtk-log
+	url = git@gitlab.inria.fr:dtk/dtk-log.git
