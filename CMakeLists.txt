@@ -39,28 +39,10 @@ set(CGAL_HEADER_ONLY TRUE CACHE INTERNAL "")
 add_subdirectory("${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher")
 SET(CGAL_DIR "${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher" CACHE INTERNAL "")
 #add CGAL to the export set of dtk-nurbs-probing
-#install(TARGETS CGAL dtkCore dtkLog
-#    DESTINATION ${CMAKE_INSTALL_LIBDIR}
-#    COMPONENT CGAL
-#    EXPORT dtkNurbsProbingDepends)
-#
-#install(TARGETS dtkCore dtkLog
-#  DESTINATION ${CMAKE_INSTALL_LIBDIR}
-#  EXPORT dtkDiscreteGeometryDepends)
-#
-#install(TARGETS dtkCore dtkLog
-#  DESTINATION ${CMAKE_INSTALL_LIBDIR}
-#  EXPORT dtkContinuousGeometryDepends)
-#
-#install(TARGETS dtkCore dtkLog
-#  DESTINATION ${CMAKE_INSTALL_LIBDIR}
-#  EXPORT dtkContinuousGeometryCore)
-#
-#install(TARGETS dtkCore dtkLog
-#  DESTINATION ${CMAKE_INSTALL_LIBDIR}
-#  EXPORT dtkDiscreteGeometryCore)
-
-
+install(TARGETS CGAL
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    COMPONENT CGAL
+    EXPORT dtkNurbsProbingDepends)
 
 message("========== END CONFIGURE CGAL ==========")
 
@@ -103,6 +85,7 @@ add_definitions(-DDTK_PLUGINS_DIR=\"${CMAKE_BINARY_DIR}/dtk-plugins-continuous-g
 add_subdirectory("${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher/Polyhedron/demo/Polyhedron")
 message("========== END CONFIGURE CGAL_NURBS ==========")
 add_dependencies(CGAL_NURBS
+  dtkContinuousGeometryCore
   sisl
   blazeRationalBezierCurve2DElevator
   dtkNurbsPolyhedralSurfaceCgal
@@ -136,4 +119,5 @@ add_dependencies(CGAL_NURBS
   dtkNurbsCurveDataOn
   dtkRationalBezierCurveDataOn
   npNurbsCurve2DCircleIntersector
-  sislRationalBezierCurveSphereIntersector)
+  sislRationalBezierCurveSphereIntersector
+  )
