@@ -5,6 +5,8 @@ message( "== CMake setup ==" )
 cmake_minimum_required(VERSION 3.1...3.15)
 project(NurbsMeshing CXX C)
 
+enable_testing()
+
 set(USES_SUBMODULES "ON")
 include_directories(${CMAKE_BINARY_DIR})
 add_subdirectory("${CMAKE_SOURCE_DIR}/blaze")
