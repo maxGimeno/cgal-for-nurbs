@@ -29,6 +29,12 @@ message("========== CONFIGURE DTK CORE... ==========")
 add_subdirectory("${CMAKE_SOURCE_DIR}/dtk-core")
 
 message("========== Done. ==========")
+
+#dtk-containers
+message("========== CONFIGURE DTK CONTAINERS... ==========")
+add_subdirectory("${CMAKE_SOURCE_DIR}/dtk-containers")
+
+message("========== Done. ==========")
 #opennurbs
 add_subdirectory("${CMAKE_SOURCE_DIR}/opennurbs")
 include_directories(${CMAKE_SOURCE_DIR}/opennurbs)
