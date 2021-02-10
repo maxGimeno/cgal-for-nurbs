@@ -27,6 +27,7 @@ message(" ==== Done. ====")
 #dtk-core
 message("========== CONFIGURE DTK CORE... ==========")
 add_subdirectory("${CMAKE_SOURCE_DIR}/dtk-core")
+get_target_property(dtkCore_VERSION dtkCore VERSION)
 
 message("========== Done. ==========")
 
