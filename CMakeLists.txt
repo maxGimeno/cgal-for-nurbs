@@ -91,7 +91,7 @@ message("========== END CONFIGURE PLUGINS CG==========")
 
 message("========== CONFIGURE CGAL_NURBS... ==========")
 add_definitions(-DDTK_PLUGINS_DIR=\"${CMAKE_BINARY_DIR}/dtk-plugins-continuous-geometry/lib\")
-add_subdirectory("${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher/Polyhedron/demo/Polyhedron")
+add_subdirectory("${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher/Polyhedron/demo/Polyhedron" EXCLUDE_FROM_ALL)
 message("========== END CONFIGURE CGAL_NURBS ==========")
 add_dependencies(CGAL_NURBS
   dtkContinuousGeometryCore
@@ -130,3 +130,5 @@ add_dependencies(CGAL_NURBS
   npNurbsCurve2DCircleIntersector
   sislRationalBezierCurveSphereIntersector
   )
+add_custom_target(CGAL_NURBS_demo ALL)
+add_dependencies(CGAL_NURBS_demo CGAL_NURBS)
