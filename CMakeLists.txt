@@ -15,14 +15,14 @@ set(Blaze_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/blaze CACHE INTERNAL "")
 add_subdirectory("${CMAKE_SOURCE_DIR}/SISL")
 
 set(SISL_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/SISL/include" CACHE INTERNAL "")
-set(SISL_LIBRARY "${CMAKE_BINARY_DIR}/SISL/libsisl.so" CACHE INTERNAL "")
+set(SISL_LIBRARY "sisl" CACHE INTERNAL "")
 
 
 #dtk-log
 message("========== CONFIGURE DTK LOG... ==========")
 add_subdirectory("${CMAKE_SOURCE_DIR}/dtk-log")
 
-message(" ==== Done. ====")
+message(" ========= Done. ==========")
 
 #dtk-core
 message("========== CONFIGURE DTK CORE... ==========")
