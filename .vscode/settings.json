@@ -1,4 +1,7 @@
 {
         "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
-        "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}"
+        "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
+        "cmake.configureArgs": [
+                "-DBUILD_SHARED_LIBS:BOOL=ON"
+        ]
 }
