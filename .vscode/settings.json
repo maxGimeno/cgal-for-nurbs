@@ -3,5 +3,6 @@
         "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
         "cmake.configureArgs": [
                 "-DBUILD_SHARED_LIBS:BOOL=ON"
-        ]
+        ],
+        "git.detectSubmodulesLimit": 15
 }
