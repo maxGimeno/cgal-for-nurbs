@@ -48,10 +48,12 @@ set(CGAL_HEADER_ONLY TRUE CACHE INTERNAL "")
 add_subdirectory("${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher")
 SET(CGAL_DIR "${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher" CACHE INTERNAL "")
 #add CGAL to the export set of dtk-nurbs-probing
-install(TARGETS CGAL
+if(TARGET CGAL)
+  install(TARGETS CGAL
     DESTINATION ${CMAKE_INSTALL_LIBDIR}
     COMPONENT CGAL
     EXPORT dtkNurbsProbingDepends)
+endif()
 
 message("========== END CONFIGURE CGAL ==========")
 
