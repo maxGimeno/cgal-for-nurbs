@@ -20,11 +20,11 @@
 	path = dtk-plugins-continuous-geometry
 	url = git@gitlab.inria.fr:dtk/dtk-plugins-continuous-geometry.git
 	branch = feature/subdivisionOracle_for_dtk2
-[submodule "nurbs-viewer-mesher"]
-	path = nurbs-viewer-mesher
+[submodule "cgal"]
+	path = cgal
 	url = git@github.com:maxGimeno/cgal.git
 	branch = nurbs-viewer-mesher-dtk2
-[submodule "mine"]
+[submodule "blaze"]
 	path = blaze
 	url = git@github.com:maxGimeno/blaze-old.git
 	branch = blaze-for-nurbs

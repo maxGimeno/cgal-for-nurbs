@@ -45,8 +45,8 @@ set(openNURBS_FOUND TRUE CACHE INTERNAL "")
 message("========== CONFIGURE CGAL... ==========")
 #SET(WITH_demos TRUE CACHE INTERNAL "")
 set(CGAL_HEADER_ONLY TRUE CACHE INTERNAL "")
-add_subdirectory("${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher")
-SET(CGAL_DIR "${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher" CACHE INTERNAL "")
+add_subdirectory("${CMAKE_SOURCE_DIR}/cgal")
+SET(CGAL_DIR "${CMAKE_SOURCE_DIR}/cgal" CACHE INTERNAL "")
 #add CGAL to the export set of dtk-nurbs-probing
 if(TARGET CGAL)
   install(TARGETS CGAL
@@ -93,7 +93,7 @@ message("========== END CONFIGURE PLUGINS CG==========")
 
 message("========== CONFIGURE CGAL_NURBS... ==========")
 add_definitions(-DDTK_PLUGINS_DIR=\"${CMAKE_BINARY_DIR}/dtk-plugins-continuous-geometry/lib\")
-add_subdirectory("${CMAKE_SOURCE_DIR}/nurbs-viewer-mesher/Polyhedron/demo/Polyhedron" EXCLUDE_FROM_ALL)
+add_subdirectory("${CMAKE_SOURCE_DIR}/cgal/Polyhedron/demo/Polyhedron" EXCLUDE_FROM_ALL)
 message("========== END CONFIGURE CGAL_NURBS ==========")
 add_dependencies(CGAL_NURBS
   dtkContinuousGeometryCore
