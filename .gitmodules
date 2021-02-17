@@ -7,23 +7,23 @@
 [submodule "dtk-continuous-geometry"]
 	path = dtk-continuous-geometry
 	url = git@gitlab.inria.fr:dtk/dtk-continuous-geometry.git
-	branch = feature/nurbsOracle_for_dtk2
+	branch = develop
 [submodule "dtk-discrete-geometry"]
 	path = dtk-discrete-geometry
 	url = git@gitlab.inria.fr:dtk/dtk-discrete-geometry.git
-	branch = develop-for-dtk2
+	branch = develop
 [submodule "dtk-nurbs-probing"]
 	path = dtk-nurbs-probing
 	url = git@gitlab.inria.fr:dream/dtk-nurbs-probing.git
-	branch = feature/subdivisionOracle_for_dtk2
+	branch = develop
 [submodule "dtk-plugins-continuous-geometry"]
 	path = dtk-plugins-continuous-geometry
 	url = git@gitlab.inria.fr:dtk/dtk-plugins-continuous-geometry.git
-	branch = feature/subdivisionOracle_for_dtk2
+	branch = develop
 [submodule "cgal"]
 	path = cgal
-	url = git@github.com:maxGimeno/cgal.git
-	branch = nurbs-viewer-mesher-dtk2
+	url = git@github.com:lrineau/cgal.git
+	branch = nurbs-viewer-mesher
 [submodule "blaze"]
 	path = blaze
 	url = git@github.com:maxGimeno/blaze-old.git
