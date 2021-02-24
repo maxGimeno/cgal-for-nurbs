@@ -3,3 +3,4 @@ dump-3d_trim_loop_of_surface-*.txt
 debug.cgal
 debug.txt
 *~
+*.bak
