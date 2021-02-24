@@ -86,13 +86,16 @@ set(dtkNurbsProbing_FOUND TRUE CACHE INTERNAL "")
 message("========== END CONFIGURE NURBS PROBING ==========")
 
 #dtk-plugins-continuous-geometry
-message("========== CONFIGURE PUGINS CG... ==========")
+message("========== CONFIGURE PLUGINS CONTINUOUS GEOMETRY... ==========")
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_SOURCE_DIR}/dtk-plugins-continuous-geometry/cmake")
 add_subdirectory("${CMAKE_SOURCE_DIR}/dtk-plugins-continuous-geometry")
-message("========== END CONFIGURE PLUGINS CG==========")
+message("========== END CONFIGURE PLUGINS CONTINUOUS GEOMETRY =========")
+
+include(GNUInstallDirs)
+set(DTK_CONTINUOUS_GEOMETRY_PLUGINS_PATH "${dtk-plugins-continuous-geometry_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR}" CACHE INTERNAL "Path to dtk-continue-geometry plugins" FORCE)
+target_compile_definitions(dtkContinuousGeometryCore PRIVATE DTK_CONTINUOUS_GEOMETRY_PLUGINS_PATH=${DTK_CONTINUOUS_GEOMETRY_PLUGINS_PATH})
 
 message("========== CONFIGURE CGAL_NURBS... ==========")
-add_definitions(-DDTK_PLUGINS_DIR=\"${CMAKE_BINARY_DIR}/dtk-plugins-continuous-geometry/lib\")
 add_subdirectory("${CMAKE_SOURCE_DIR}/cgal/Polyhedron/demo/Polyhedron" EXCLUDE_FROM_ALL)
 message("========== END CONFIGURE CGAL_NURBS ==========")
 add_dependencies(CGAL_NURBS
