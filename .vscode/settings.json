@@ -4,5 +4,10 @@
         "cmake.configureArgs": [
                 "-DBUILD_SHARED_LIBS:BOOL=ON"
         ],
-        "git.detectSubmodulesLimit": 15
+        "git.detectSubmodulesLimit": 15,
+        "cSpell.words": [
+                "Bezier",
+                "nurbs",
+                "occt"
+        ]
 }
