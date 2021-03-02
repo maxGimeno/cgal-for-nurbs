@@ -4,3 +4,5 @@ debug.cgal
 debug.txt
 *~
 *.bak
+/.cache
+/compile_commands.json
