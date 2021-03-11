@@ -39,6 +39,7 @@ message("========== Done. ==========")
 #opennurbs
 add_subdirectory("${CMAKE_SOURCE_DIR}/opennurbs")
 include_directories(${CMAKE_SOURCE_DIR}/opennurbs)
+
 set(openNURBS_FOUND TRUE CACHE INTERNAL "")
 
 #cgal
