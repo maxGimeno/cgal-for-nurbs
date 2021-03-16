@@ -3,7 +3,8 @@
 	url = git@gitlab.inria.fr:dream/opennurbs.git
 [submodule "SISL"]
 	path = SISL
-	url = git@github.com:SINTEF-Geometry/SISL.git
+	url = git@github.com:lrineau/SISL.git
+	branch = fix_on_Windows
 [submodule "dtk-continuous-geometry"]
 	path = dtk-continuous-geometry
 	url = git@gitlab.inria.fr:dtk/dtk-continuous-geometry.git
