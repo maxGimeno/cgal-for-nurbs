@@ -3,6 +3,7 @@ This repository contains most of the necessary components for using Nurbs with C
 `dtk-continuous-geometry`, `dtk-discrete-geometry`, `dtk-nurbs-probing` and `dtk-plugins-continuous-geometry` on the INRIA gitlab to use it.
 ## Dependencies
 The dependencies that are not provided are the ones for CGAL. You can find them [here](https://doc.cgal.org/latest/Manual/thirdparty.html)
+
 **For Windows** usage with cygwin, there are extra steps to install BLAS and LAPACK:
  - install a recent version of mingw64 (from [this site, for example](http://mingw-w64.org/doku.php/download))
  - open mingw64.exe and type the following `pacman -S mingw64/mingw-w64-x86_64-make`
