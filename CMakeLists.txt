@@ -13,7 +13,9 @@ add_subdirectory("${CMAKE_SOURCE_DIR}/blaze")
 set(Blaze_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/blaze CACHE INTERNAL "")
 #SISL
 add_subdirectory("${CMAKE_SOURCE_DIR}/SISL")
-
+if(WIN32)
+  target_compile_definitions(sisl PUBLIC SISLNEEDPROTOTYPES)
+endif()
 set(SISL_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/SISL/include" CACHE INTERNAL "")
 set(SISL_LIBRARY "sisl" CACHE INTERNAL "")
 
