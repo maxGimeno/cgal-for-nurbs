@@ -2,7 +2,9 @@
         "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
         "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
         "cmake.configureArgs": [
-                "-DBUILD_SHARED_LIBS:BOOL=ON"
+                "-DBUILD_SHARED_LIBS:BOOL=ON",
+                "-DDTK_NURBS_PROBING_BUILD_APPS:BOOL=ON",
+                "-DCONCURRENT_MESH_3:BOOL=ON"
         ],
         "git.detectSubmodulesLimit": 15,
         "cSpell.words": [

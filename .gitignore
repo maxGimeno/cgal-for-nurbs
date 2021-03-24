@@ -6,3 +6,4 @@ debug.txt
 *.bak
 /.cache
 /compile_commands.json
+/build/
