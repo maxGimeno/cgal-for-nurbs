@@ -7,3 +7,10 @@ debug.txt
 /.cache
 /compile_commands.json
 /build/
+*.binary.cgal
+*.mesh
+dump-*.spheres.txt
+out.binary.cgal
+out.mesh
+out.off
+triangulation.obj
