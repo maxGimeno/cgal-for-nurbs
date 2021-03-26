@@ -9,7 +9,27 @@
         "git.detectSubmodulesLimit": 15,
         "cSpell.words": [
                 "Bezier",
+                "CASCADEB",
+                "Colgp",
+                "NURBSB",
+                "SISL",
+                "Topo",
+                "brep",
+                "clocurves",
+                "dcurves",
+                "discretization",
+                "distj",
+                "itype",
+                "mults",
+                "numclocr",
+                "numclopt",
+                "nurb",
                 "nurbs",
-                "occt"
+                "nurbsconvert",
+                "occt",
+                "opennurbs",
+                "statj",
+                "tedge",
+                "tface"
         ]
 }
