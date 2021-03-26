@@ -11,7 +11,9 @@
                 "Bezier",
                 "CASCADEB",
                 "Colgp",
+                "DTKCORE",
                 "NURBSB",
+                "QMETATYPE",
                 "SISL",
                 "Topo",
                 "brep",
@@ -28,6 +30,8 @@
                 "nurbsconvert",
                 "occt",
                 "opennurbs",
+                "qstrlen",
+                "quintptr",
                 "statj",
                 "tedge",
                 "tface"
