@@ -3,15 +3,22 @@ This repository contains most of the necessary components for using Nurbs with C
 `dtk-continuous-geometry`, `dtk-discrete-geometry`, `dtk-nurbs-probing` and `dtk-plugins-continuous-geometry` on the INRIA gitlab to use it.
 ## Dependencies
 The dependencies that are not provided are the ones for CGAL. You can find them [here](https://doc.cgal.org/latest/Manual/thirdparty.html)
-
-**For Windows** usage with cygwin, there are extra steps to install BLAS and LAPACK:
- - install a recent version of mingw64 (from [this site, for example](http://mingw-w64.org/doku.php/download))
- - open mingw64.exe and type the following `pacman -S mingw64/mingw-w64-x86_64-make`
- - then type: `export PATH=C:\msys64\mingw64\x86_64-w64-mingw32\bin;C:\msys64\mingw64\bin;%PATH%`. Adapt the paths to your installation of mingw64. Note that the current PATH must not contain cygwin directories like bin, as it will probably conflict with mingw paths.
- - From here, you can follow the instructions at https://icl.cs.utk.edu/lapack-for-windows/lapack/
  
-## Usage
+## Linux Usage
+
  - In the root directory, enter `git submodule update --init` to clone all submodules.
  - Create a build directory, go in it : `mkdir build && cd build`
  - configure the project with BUILD_SHARED_LIBS=ON (because of sisl) : `cmake -DBUILD_SHARED_LIBS=ON ..`
  - Build the target `CGAL_NURBS` and run the demo : `make -j6 CGAL_NURBS && ./nurbs-viewer-mesher/Polyhedron/demo/Polyhedron/CGAL_NURBS`
+
+## Windows Usage (with cygwin)
+ - install MKL using the online Intel oneAPI installer at https://software.intel.com/content/www/us/en/develop/tools/oneapi/base-toolkit/download.html?operatingsystem=window&distributions=webdownload
+ - In the root directory of cgal-for-nurbs, enter `git submodule update --init` to update and clone all submodules.
+ - create a build dir near the root to avoid too long paths errors : `mkdir C:/build-nurbs && cd C:/build-nurbs`
+ - call <oneAPI_root_dir>/setvars.bat
+ - call cmake with the following variables:
+    CMAKE_PREFIX_PATH="<oneAPI_root_dir>/mkl/latest;<oneAPI_root_dir>/mkl/latest/lib/intel64;"(in cmake-gui, use +Add Entry -> STRING)
+    BUILD_SHARED_LIBS=ON(in cmake-gui, use + Add Entry -> BOOL)
+ - build
+ - call `BUILD_DIR=/cygdrive/c/build-nurbs/ && PATH=dtk-containers/bin/Release/:$BUILD_DIR/dtk-continuous-geometry/bin/Release/:$BUILD_DIR/dtk-core/bin/Release/:$BUILD_DIR/dtk-discrete-geometry/bin/Release/:$BUILD_DIR/dtk-log/bin/Release/:$BUILD_DIR/dtk-nurbs-probing/bin/Release/:$BUILD_DIR/dtk-plugins-continuous-geometry/bin/Release/:$BUILD_DIR/opennurbs/bin/Release/:$BUILD_DIR/SISL/Release/:$BUILD_DIR/cgal/Polyhedron/demo/Polyhedron/Plugins/Cad/Release/:$PATH`  to add all the created dll to the PATH
+ - call `./cgal/Polyhedron/demo/Polyhedron/Release/CGAL_NURBS.exe` to launch the demo.
