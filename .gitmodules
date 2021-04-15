@@ -39,5 +39,5 @@
 	branch = develop
 [submodule "dtk-containers"]
 	path = dtk-containers
-	url = git@gitlab.inria.fr:lrineau/dtk-containers.git
-	branch = develop-for-submodules
+	url = git@gitlab.inria.fr:dtk/dtk-containers.git
+	branch = develop
