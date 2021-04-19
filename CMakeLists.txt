@@ -95,7 +95,12 @@ add_subdirectory("${CMAKE_SOURCE_DIR}/dtk-plugins-continuous-geometry")
 message("========== END CONFIGURE PLUGINS CONTINUOUS GEOMETRY =========")
 
 include(GNUInstallDirs)
-set(DTK_CONTINUOUS_GEOMETRY_PLUGINS_PATH "${dtk-plugins-continuous-geometry_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR}" CACHE INTERNAL "Path to dtk-continue-geometry plugins" FORCE)
+get_property(IS_MULTI_CONFIG GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
+if(IS_MULTI_CONFIG)
+  set(DTK_CONTINUOUS_GEOMETRY_PLUGINS_PATH "${dtk-plugins-continuous-geometry_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR}/$<CONFIG>" CACHE INTERNAL "Path to dtk-continue-geometry plugins" FORCE)
+else()
+  set(DTK_CONTINUOUS_GEOMETRY_PLUGINS_PATH "${dtk-plugins-continuous-geometry_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR}" CACHE INTERNAL "Path to dtk-continue-geometry plugins" FORCE)
+endif()
 target_compile_definitions(dtkContinuousGeometryCore PRIVATE DTK_CONTINUOUS_GEOMETRY_PLUGINS_PATH=${DTK_CONTINUOUS_GEOMETRY_PLUGINS_PATH})
 
 message("========== CONFIGURE CGAL_NURBS... ==========")

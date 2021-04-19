@@ -19,6 +19,6 @@ The dependencies that are not provided are the ones for CGAL. You can find them 
  - call cmake with the following variables:
     CMAKE_PREFIX_PATH="<oneAPI_root_dir>/mkl/latest;<oneAPI_root_dir>/mkl/latest/lib/intel64;"(in cmake-gui, use +Add Entry -> STRING)
     BUILD_SHARED_LIBS=ON(in cmake-gui, use + Add Entry -> BOOL)
- - build
- - call `BUILD_DIR=/cygdrive/c/build-nurbs/ && PATH=dtk-containers/bin/Release/:$BUILD_DIR/dtk-continuous-geometry/bin/Release/:$BUILD_DIR/dtk-core/bin/Release/:$BUILD_DIR/dtk-discrete-geometry/bin/Release/:$BUILD_DIR/dtk-log/bin/Release/:$BUILD_DIR/dtk-nurbs-probing/bin/Release/:$BUILD_DIR/dtk-plugins-continuous-geometry/bin/Release/:$BUILD_DIR/opennurbs/bin/Release/:$BUILD_DIR/SISL/Release/:$BUILD_DIR/cgal/Polyhedron/demo/Polyhedron/Plugins/Cad/Release/:$PATH`  to add all the created dll to the PATH
+ - build the target `CGAL_NURBS`
+ - call `BUILD_DIR=/cygdrive/c/build-nurbs/ && PATH=$BUILD_DIR/dtk-containers/bin/Release/:$BUILD_DIR/dtk-continuous-geometry/bin/Release/:$BUILD_DIR/dtk-core/bin/Release/:$BUILD_DIR/dtk-discrete-geometry/bin/Release/:$BUILD_DIR/dtk-log/bin/Release/:$BUILD_DIR/dtk-nurbs-probing/bin/Release/:$BUILD_DIR/dtk-plugins-continuous-geometry/bin/Release/:$BUILD_DIR/opennurbs/bin/Release/:$BUILD_DIR/SISL/Release/:$BUILD_DIR/cgal/Polyhedron/demo/Polyhedron/Plugins/Cad/Release/:$PATH`  to add all the created dll to the PATH
  - call `./cgal/Polyhedron/demo/Polyhedron/Release/CGAL_NURBS.exe` to launch the demo.
