@@ -11,6 +11,10 @@ set(USES_SUBMODULES "ON")
 include_directories(${CMAKE_BINARY_DIR})
 add_subdirectory("${CMAKE_SOURCE_DIR}/blaze")
 set(Blaze_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/blaze CACHE INTERNAL "")
+
+#OpenCASCADE
+add_subdirectory("${CMAKE_SOURCE_DIR}/OCCT")
+
 #SISL
 add_subdirectory("${CMAKE_SOURCE_DIR}/SISL")
 if(WIN32)
@@ -82,6 +86,7 @@ message("========== END CONFIGURE CG ==========")
 #dtk-nurbs-probing
 message("========== CONFIGURE NURBS PROBING... ==========")
 set(DTK_NURBS_PROBING_BUILD_MREP TRUE CACHE INTERNAL "")
+set(DTK_NURBS_PROBING_BUILD_APPS TRUE CACHE INTERNAL "")
 add_subdirectory("${CMAKE_SOURCE_DIR}/dtk-nurbs-probing")
 get_property(DTK_NP_INCLUDE_DIRS DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/dtk-nurbs-probing PROPERTY INCLUDE_DIRECTORIES)
 include_directories(${DTK_NP_INCLUDE_DIRS})
@@ -151,3 +156,42 @@ add_dependencies(CGAL_NURBS
   )
 add_custom_target(CGAL_NURBS_demo ALL)
 add_dependencies(CGAL_NURBS_demo CGAL_NURBS)
+
+
+add_custom_target(CGAL_NURBS_meshing ALL)
+add_dependencies(CGAL_NURBS_meshing
+  dtkSeamGraphMeshing
+  sisl
+  blazeRationalBezierCurve2DElevator
+  dtkNurbsPolyhedralSurfaceCgal
+  dtkRationalBezierCurveDataSisl
+  npRationalBezierCurveSphereIntersector
+  sislRationalBezierSurfaceCircleIntersector
+  blazeRationalBezierCurveLossLessDegreeReductor
+  dtkNurbsPolyhedralSurfaceDefault
+  dtkRationalBezierSurfaceDataDefault
+  openNURBSBRepReader
+  sislRationalBezierSurfaceLineIntersector
+  defaultRationalBezierCurve2DElevator
+  dtkNurbsSurfaceDataDefault
+  dtkRationalBezierSurfaceDataOn
+  sislNurbsSurfaceRayIntersector
+  sislRationalBezierSurfacePointIntersector
+  defaultRationalBezierCurveLossLessDegreeReductor
+  dtkNurbsSurfaceDataOn
+  dtkRationalBezierSurfaceDataSisl
+  sislRationalBezierCurve2DLineIntersector
+  sislRationalBezierSurfaceRayIntersector
+  dtkBRepReaderCgal
+  dtkNurbsSurfaceDataSisl
+  dtkTrimLoopDataCgal
+  sislRationalBezierCurve2DSegmentIntersector
+  sislRationalBezierSurfaceSegmentIntersector
+  dtkNurbsCurve2DDataOn
+  dtkRationalBezierCurve2DDataOn
+  dtkTrimLoopDataNp
+  sislRationalBezierCurvePlaneIntersector
+  dtkNurbsCurveDataOn
+  dtkRationalBezierCurveDataOn
+  npNurbsCurve2DCircleIntersector
+  sislRationalBezierCurveSphereIntersector)
