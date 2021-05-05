@@ -3,7 +3,7 @@ This repository contains most of the necessary components for using Nurbs with C
 `dtk-continuous-geometry`, `dtk-discrete-geometry`, `dtk-nurbs-probing` and `dtk-plugins-continuous-geometry` on the INRIA gitlab to use it.
 ## Dependencies
 The dependencies that are not provided are the ones for CGAL. You can find them [here](https://doc.cgal.org/latest/Manual/thirdparty.html)
-There is also [BLAS](http://www.netlib.org/blas) and [LAPACK](http://www.netlib.org/lapack/).
+There is also [TCL](https://www.tcl.tk/software/tcltk/bindist.html), [BLAS](http://www.netlib.org/blas) and [LAPACK](http://www.netlib.org/lapack/).
  
 ## Linux Usage
 
@@ -21,7 +21,6 @@ There is also [BLAS](http://www.netlib.org/blas) and [LAPACK](http://www.netlib.
  - call cmake with the following variables:
     CMAKE_PREFIX_PATH="<oneAPI_root_dir>/mkl/latest;<oneAPI_root_dir>/mkl/latest/lib/intel64;"(in cmake-gui, use +Add Entry -> STRING)
     BUILD_SHARED_LIBS=ON(in cmake-gui, use + Add Entry -> BOOL)
-    and check DTK_NURBS_PROBING_BUILD_APPS
  - build the target `CGAL_NURBS` and/or `CGAL_NURBS_meshing`
  - call `BUILD_DIR=/cygdrive/c/build-nurbs/ && PATH=$BUILD_DIR/dtk-containers/bin/Release/:$BUILD_DIR/dtk-continuous-geometry/bin/Release/:$BUILD_DIR/dtk-core/bin/Release/:$BUILD_DIR/dtk-discrete-geometry/bin/Release/:$BUILD_DIR/dtk-log/bin/Release/:$BUILD_DIR/dtk-nurbs-probing/bin/Release/:$BUILD_DIR/dtk-plugins-continuous-geometry/bin/Release/:$BUILD_DIR/opennurbs/bin/Release/:$BUILD_DIR/SISL/Release/:$BUILD_DIR/cgal/Polyhedron/demo/Polyhedron/Plugins/Cad/Release/:$PATH`  to add all the created dll to the PATH
  - call `./cgal/Polyhedron/demo/Polyhedron/Release/CGAL_NURBS.exe` to launch the demo.

@@ -13,6 +13,8 @@ add_subdirectory("${CMAKE_SOURCE_DIR}/blaze")
 set(Blaze_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/blaze CACHE INTERNAL "")
 
 #OpenCASCADE
+set(USE_TK FALSE CACHE INTERNAL "")
+set(USE_FREETYPE FALSE CACHE INTERNAL "")
 add_subdirectory("${CMAKE_SOURCE_DIR}/OCCT")
 
 #SISL
