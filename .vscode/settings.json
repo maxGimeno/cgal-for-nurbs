@@ -6,11 +6,18 @@
                 "-DDTK_NURBS_PROBING_BUILD_APPS:BOOL=ON",
                 "-DCONCURRENT_MESH_3:BOOL=ON"
         ],
+        "files.associations": {
+                "*.h": "cpp",
+                "*.tpp": "cpp",
+                "*.cmake.in": "cmake",
+                "*.lxx": "cpp"
+        },
         "git.detectSubmodulesLimit": 15,
         "cSpell.words": [
                 "Bezier",
                 "CASCADEB",
                 "Colgp",
+                "DTKCONTINUOUSGEOMETRYCORE",
                 "DTKCORE",
                 "NURBSB",
                 "QMETATYPE",
@@ -21,6 +28,7 @@
                 "dcurves",
                 "discretization",
                 "distj",
+                "gcurve",
                 "itype",
                 "mults",
                 "numclocr",
@@ -30,6 +38,7 @@
                 "nurbsconvert",
                 "occt",
                 "opennurbs",
+                "pcurve",
                 "qstrlen",
                 "quintptr",
                 "statj",
