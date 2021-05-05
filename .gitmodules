@@ -41,3 +41,6 @@
 	path = dtk-containers
 	url = git@gitlab.inria.fr:dtk/dtk-containers.git
 	branch = develop
+[submodule "OCCT"]
+	path = OCCT
+	url = git@github.com:Open-Cascade-SAS/OCCT.git
