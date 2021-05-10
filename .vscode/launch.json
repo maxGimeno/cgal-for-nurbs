@@ -220,6 +220,45 @@
             ]
         },
         {
+            "name": "(gdb) dtkNurbsSurfaceMeshing abc_0_394.step",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/${command:cmake.buildType}/dtk-nurbs-probing/bin/dtkSeamGraphMeshing",
+            "args": [
+                "${workspaceFolder}/dtk-nurbs-probing/data/step/abc_0_394.step",
+                "-sharp_size=1",
+                "-smooth_size=0.01",
+                "-cell_size=5",
+                "-facet_distance=0.01",
+                "-no-sizing-field",
+                "-out=abc_0_394",
+                "-serial",
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "catch throw Standard_OutOfRange",
+                    "text": "catch throw Standard_OutOfRange",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "catch throw CGAL::Assertion_exception",
+                    "text": "catch throw CGAL::Assertion_exception",
+                    "ignoreFailures": true
+                }
+
+            ]
+        },
+        {
             "name": "(gdb) dtkNurbsSurfaceMeshing abc_0_154.step",
             "type": "cppdbg",
             "request": "launch",
