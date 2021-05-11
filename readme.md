@@ -11,7 +11,7 @@ There is also [TCL](https://www.tcl.tk/software/tcltk/bindist.html), [BLAS](http
  - Create a build directory, go in it : `mkdir build && cd build`
  - configure the project with BUILD_SHARED_LIBS=ON (because of sisl) : `cmake -DBUILD_SHARED_LIBS=ON -DDTK_NURBS_PROBING_BUILD_APPS=ON ..`
  - For the GUI program, build the target `CGAL_NURBS` and run the demo : `make -j6 CGAL_NURBS && ./cgal/Polyhedron/demo/Polyhedron/CGAL_NURBS`
- - For the shell program, build the target `CGAL_NURBS_meshing` and run : `make -j6 dtkSeamGraphMeshing && ./dtk-nurbs-probing/bin/dtkSeamGraphMeshing <file-to-mesh>.3dm`
+ - For the shell program, build the target `CGAL_NURBS_meshing` and run : `make -j6 CGAL_NURBS_meshing && ./dtk-nurbs-probing/bin/dtkSeamGraphMeshing <file-to-mesh>.3dm`
 
 ## Windows Usage (with cygwin)
  - install MKL using the online Intel oneAPI installer at https://software.intel.com/content/www/us/en/develop/tools/oneapi/base-toolkit/download.html?operatingsystem=window&distributions=webdownload
