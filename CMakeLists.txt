@@ -160,9 +160,12 @@ add_dependencies(CGAL_NURBS
   npNurbsCurve2DCircleIntersector
   sislRationalBezierCurveSphereIntersector
   )
-add_custom_target(CGAL_NURBS_demo ALL)
-add_dependencies(CGAL_NURBS_demo CGAL_NURBS)
 
+option(CGAL_BUILD_NURBS_DEMO "Build the 3D demo to load NURBS object" ON)
+if(CGAL_BUILD_NURBS_DEMO)
+  add_custom_target(CGAL_NURBS_demo ALL)
+  add_dependencies(CGAL_NURBS_demo CGAL_NURBS)
+endif()
 
 add_custom_target(CGAL_NURBS_meshing ALL)
 add_dependencies(CGAL_NURBS_meshing
