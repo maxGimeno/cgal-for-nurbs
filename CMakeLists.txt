@@ -20,7 +20,8 @@ else()
   set(USE_FREETYPE TRUE CACHE INTERNAL "")
 endif()
 add_subdirectory("${CMAKE_SOURCE_DIR}/OCCT")
-
+get_property(OCCT_INCLUDE_DIRS DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/OCCT PROPERTY INCLUDE_DIRECTORIES)
+include_directories(${OCCT_INCLUDE_DIRS})
 #SISL
 add_subdirectory("${CMAKE_SOURCE_DIR}/SISL")
 if(WIN32)
