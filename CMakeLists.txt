@@ -123,9 +123,7 @@ target_compile_definitions(dtkContinuousGeometryCore PRIVATE DTK_CONTINUOUS_GEOM
 message("========== CONFIGURE CGAL_NURBS... ==========")
 add_subdirectory("${CMAKE_SOURCE_DIR}/cgal/Polyhedron/demo/Polyhedron" EXCLUDE_FROM_ALL)
 message("========== END CONFIGURE CGAL_NURBS ==========")
-add_dependencies(CGAL_NURBS
-  dtkContinuousGeometryCore
-  sisl
+set (LIST_OF_DEPENDENCIES sisl
   blazeRationalBezierCurve2DElevator
   dtkNurbsPolyhedralSurfaceCgal
   dtkRationalBezierCurveDataSisl
@@ -159,7 +157,17 @@ add_dependencies(CGAL_NURBS
   dtkRationalBezierCurveDataOn
   npNurbsCurve2DCircleIntersector
   sislRationalBezierCurveSphereIntersector
-  )
+  dtkNurbsCurve2DDataOCCT
+  dtkNurbsCurveDataOCCT
+  dtkNurbsSurfaceDataOCCT
+  dtkRationalBezierCurve2DDataOCCT
+  dtkRationalBezierCurveDataOCCT
+  dtkRationalBezierSurfaceDataOCCT
+  OpenCASCADEBRepReader)
+
+add_dependencies(CGAL_NURBS
+  dtkContinuousGeometryCore
+  ${LIST_OF_DEPENDENCIES})
 
 option(CGAL_BUILD_NURBS_DEMO "Build the 3D demo to load NURBS object" ON)
 if(CGAL_BUILD_NURBS_DEMO)
@@ -170,37 +178,4 @@ endif()
 add_custom_target(CGAL_NURBS_meshing ALL)
 add_dependencies(CGAL_NURBS_meshing
   dtkSeamGraphMeshing
-  sisl
-  blazeRationalBezierCurve2DElevator
-  dtkNurbsPolyhedralSurfaceCgal
-  dtkRationalBezierCurveDataSisl
-  npRationalBezierCurveSphereIntersector
-  sislRationalBezierSurfaceCircleIntersector
-  blazeRationalBezierCurveLossLessDegreeReductor
-  dtkNurbsPolyhedralSurfaceDefault
-  dtkRationalBezierSurfaceDataDefault
-  openNURBSBRepReader
-  sislRationalBezierSurfaceLineIntersector
-  defaultRationalBezierCurve2DElevator
-  dtkNurbsSurfaceDataDefault
-  dtkRationalBezierSurfaceDataOn
-  sislNurbsSurfaceRayIntersector
-  sislRationalBezierSurfacePointIntersector
-  defaultRationalBezierCurveLossLessDegreeReductor
-  dtkNurbsSurfaceDataOn
-  dtkRationalBezierSurfaceDataSisl
-  sislRationalBezierCurve2DLineIntersector
-  sislRationalBezierSurfaceRayIntersector
-  dtkBRepReaderCgal
-  dtkNurbsSurfaceDataSisl
-  dtkTrimLoopDataCgal
-  sislRationalBezierCurve2DSegmentIntersector
-  sislRationalBezierSurfaceSegmentIntersector
-  dtkNurbsCurve2DDataOn
-  dtkRationalBezierCurve2DDataOn
-  dtkTrimLoopDataNp
-  sislRationalBezierCurvePlaneIntersector
-  dtkNurbsCurveDataOn
-  dtkRationalBezierCurveDataOn
-  npNurbsCurve2DCircleIntersector
-  sislRationalBezierCurveSphereIntersector)
+  ${LIST_OF_DEPENDENCIES})
