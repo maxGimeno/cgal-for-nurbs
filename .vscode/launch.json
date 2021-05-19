@@ -136,6 +136,34 @@
             ]
         },
         {
+            "name": "(gdb) dtkSeamGraphMeshing abc_0_31.step",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/${command:cmake.buildType}/dtk-nurbs-probing/bin/dtkSeamGraphMeshing",
+            "args": [
+                "${workspaceFolder}/dtk-nurbs-probing/data/step/abc_0_31.step",
+                "-sharp_size=1",
+                "-smooth_size=0.01",
+                "-cell_size=5",
+                "-facet_distance=0.01",
+                "-out=abc_0_31",
+                "-no-sizing-field",
+                //"-serial",
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
             "name": "(gdb) dtkSeamGraphMeshing abc_0_523.step",
             "type": "cppdbg",
             "request": "launch",
@@ -355,7 +383,7 @@
                 "-facet_distance=0.01",
                 "-no-sizing-field",
                 "-out=abc_0_275",
-                //"-serial",
+                "-serial",
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
