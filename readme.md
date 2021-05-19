@@ -25,3 +25,7 @@ There is also [TCL](https://www.tcl.tk/software/tcltk/bindist.html), [BLAS](http
  - call `BUILD_DIR=/cygdrive/c/build-nurbs/ && PATH=$BUILD_DIR/dtk-containers/bin/Release/:$BUILD_DIR/dtk-continuous-geometry/bin/Release/:$BUILD_DIR/dtk-core/bin/Release/:$BUILD_DIR/dtk-discrete-geometry/bin/Release/:$BUILD_DIR/dtk-log/bin/Release/:$BUILD_DIR/dtk-nurbs-probing/bin/Release/:$BUILD_DIR/dtk-plugins-continuous-geometry/bin/Release/:$BUILD_DIR/opennurbs/bin/Release/:$BUILD_DIR/SISL/Release/:$BUILD_DIR/cgal/Polyhedron/demo/Polyhedron/Plugins/Cad/Release/:$PATH`  to add all the created dll to the PATH
  - call `./cgal/Polyhedron/demo/Polyhedron/Release/CGAL_NURBS.exe` to launch the demo.
  - call `./dtk-nurbs-probing/bin/Release/dtkSeamGraphMeshing <file-to-mesh>.3dm` to launch the meshing program. 
+
+ ## Example parameters
+ For testing with ABC data, one can call 
+ `dtkSeamGraphMeshing -sharp_size=1 -smooth_size=0.1 -cell_size=5 -facet_distance=0.01`
