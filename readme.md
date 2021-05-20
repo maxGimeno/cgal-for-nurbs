@@ -26,6 +26,28 @@ There is also [TCL](https://www.tcl.tk/software/tcltk/bindist.html), [BLAS](http
  - call `./cgal/Polyhedron/demo/Polyhedron/Release/CGAL_NURBS.exe` to launch the demo.
  - call `./dtk-nurbs-probing/bin/Release/dtkSeamGraphMeshing <file-to-mesh>.3dm` to launch the meshing program. 
 
- ## Example parameters
- For testing with ABC data, one can call 
- `dtkSeamGraphMeshing -sharp_size=1 -smooth_size=0.1 -cell_size=5 -facet_distance=0.01`
+## Example Parameters
+For testing with ABC data, one can call
+
+    dtkSeamGraphMeshing -sharp_size=1 -smooth_size=0.1 -cell_size=5 -facet_distance=0.01`
+
+## Regression Tests
+For developers, there is a regression test suite, using CTest. The command-line to launch the regression testsuite is, for example:
+
+    ctest -L regression_tests -C RelWithDebInfo -j6 --output-on-failure
+
+Options:
+
+  - `-C RelWithDebInfo` specifies the wanted build-type. This option is only required for a multi-configurations CMake generator (Visual Studio, XCode, Ninja Multi-config...). The build-type can also be:
+
+    - `Release`, or
+    - `Debug`.
+  - `-j6` specifies that 6 test jobs can be run in parallel. Adapt to your CPU possibilities.
+  - `--output-on-failure` instruct CTest to display the outputs of tests only in case of failure. If you want to always see outputs, use `-V` instead.
+
+### Run Individual Tests
+You can run a single test using a command line like this one, where `*step` is the name of the STEP file of the test, and `-V` is optional:
+
+    ctest -R preprocess_serial_abc_0_335.step -V
+
+If you have configured the project with TBB and the CMake option `CONCURRENT_MESH_3`, you can run the same test in parallel with the name `preprocess_parallel_abc_0_335.step` instead of `preprocess_serial_abc_0_335.step`.
