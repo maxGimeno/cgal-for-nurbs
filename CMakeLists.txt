@@ -166,15 +166,17 @@ set (LIST_OF_DEPENDENCIES sisl
   dtkRationalBezierSurfaceDataOCCT
   OpenCASCADEBRepReader)
 
-add_dependencies(CGAL_NURBS
-  dtkContinuousGeometryCore
-  ${LIST_OF_DEPENDENCIES})
+  if(TARGET CGAL_NURBS)
+  add_dependencies(CGAL_NURBS
+    dtkContinuousGeometryCore
+    ${LIST_OF_DEPENDENCIES})
 
-option(CGAL_BUILD_NURBS_DEMO "Build the 3D demo to load NURBS object" ON)
-if(CGAL_BUILD_NURBS_DEMO)
-  add_custom_target(CGAL_NURBS_demo ALL)
-  add_dependencies(CGAL_NURBS_demo CGAL_NURBS)
-endif()
+  option(CGAL_BUILD_NURBS_DEMO "Build the 3D demo to load NURBS object" ON)
+  if(CGAL_BUILD_NURBS_DEMO)
+    add_custom_target(CGAL_NURBS_demo ALL)
+    add_dependencies(CGAL_NURBS_demo CGAL_NURBS)
+  endif()
+endif() #CGAL_NURBS
 
 add_custom_target(CGAL_NURBS_meshing ALL)
 add_dependencies(CGAL_NURBS_meshing
