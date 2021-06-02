@@ -1,0 +1,24 @@
+stages:
+  - build
+
+build-code-job:
+  variables:
+    CI_DEBUG_TRACE: "true"
+  tags: 
+    - test
+  stage: build
+  script:
+    - cd ~/.ssh
+    - gpg --pinentry-mode=loopback --passphrase  "$SSH_PASS" -d -o "id_rsa" "id_rsa.gpg"
+    - chmod 0600 ~/.ssh/id_rsa
+    - echo "github.com,140.82.121.4 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==" > ~/.ssh/known_hosts
+    - echo "gitlab.inria.fr,128.93.193.8 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAFldY2ft1ReZjFYPpe/wa5Vhl4YJfYz6IJOZaZxL924R44jrGWiR2/Misrug75NBsQB+UWs1iIyWZPk0AN45Sk=" >> ~/.ssh/known_hosts
+    - cd /cgal-for-nurbs
+    - git fetch origin
+    - git checkout $CI_COMMIT_SHA
+    - git submodule update --recursive --remote
+    - mkdir -p build && cd build
+    - cmake -DBUILD_SHARED_LIBS=ON -DDTK_NURBS_PROBING_BUILD_APPS=ON ..
+    - make -j2 CGAL_NURBS_meshing
+    - ctest -L regression_tests -C RelWithDebInfo -j2 --output-on-failure
+
