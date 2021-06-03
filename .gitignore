@@ -1,5 +1,7 @@
 dump-2d_trim_loop_of_surface-*.txt
 dump-3d_trim_loop_of_surface-*.txt
+dump_surface_*_trim_loop_*.polylines.txt
+dump-*.spheres.txt
 debug.cgal
 debug.txt
 *~
@@ -9,7 +11,6 @@ debug.txt
 /build/
 *.binary.cgal
 *.mesh
-dump-*.spheres.txt
 out.binary.cgal
 out.mesh
 out.off
