@@ -595,6 +595,39 @@
             ]
         },
         {
+            "name": "(gdb) dtkSeamGraphMeshing mesh_part_a + sphere",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.buildDirectory}/dtk-nurbs-probing/bin/dtkSeamGraphMeshing",
+            "args": [
+                "${workspaceFolder}/dtk-nurbs-probing/data/3dm/mech_part_a.3dm",
+                "-sharp_size=0.1",
+                "-smooth_size=0.02",
+                //"-no-sizing-field",
+                "-cell_size=5",
+                "-facet_distance=0.01",
+                "-serial",
+                "-volume-with-multidomain"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                {
+                    "name": "ASAN_OPTIONS",
+                    "value": "alloc_dealloc_mismatch=false:debug=1:abort_on_error=1:detect_leaks=0"
+                }
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
             "name": "(gdb) dtkNurbsSurfaceMeshing mesh_part_a",
             "type": "cppdbg",
             "request": "launch",
