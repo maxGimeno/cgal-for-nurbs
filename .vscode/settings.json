@@ -47,5 +47,6 @@
                 "tedge",
                 "tface"
         ],
-        "python.formatting.provider": "black"
+        "python.formatting.provider": "black",
+        "git.ignoreLimitWarning": true
 }
